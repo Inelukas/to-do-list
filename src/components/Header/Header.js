@@ -6,9 +6,8 @@ const StyledHeader = styled.header`
   background: var(--primary-color);
 
   h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-content: center;
     height: 100%;
     color: white;
   }

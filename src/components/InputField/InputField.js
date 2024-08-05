@@ -40,7 +40,7 @@ const StyledForm = styled.form`
 `;
 
 export function InputField({ onNote }) {
-  const [note, setNote] = useState({ title: "", content: "• " });
+  const [note, setNote] = useState({ title: "", content: "" });
 
   function handleInput(event) {
     const { name, value } = event.target;
@@ -55,16 +55,25 @@ export function InputField({ onNote }) {
   function handleNote(event) {
     event.preventDefault();
     onNote(note);
-    setNote({ title: "", content: "• " });
+    setNote({ title: "", content: "" });
   }
 
   function handleNewLine(event) {
     if (event.key === "Enter") {
       event.preventDefault();
-      setNote((prevInput) => ({
-        ...prevInput,
-        content: prevInput.content + "\n• ",
-      }));
+      setNote((prevInput) => {
+        if (prevInput.content.includes("•")) {
+          return {
+            ...prevInput,
+            content: prevInput.content + "\n• ",
+          };
+        } else {
+          return {
+            ...prevInput,
+            content: "• " + prevInput.content + "\n• ",
+          };
+        }
+      });
     }
   }
 

@@ -10,6 +10,7 @@ const StyledNote = styled.div`
   border-radius: 20px;
   padding: 10px;
   font-size: 1.2em;
+  box-shadow: 3px 3px black;
 
   button {
     position: absolute;
@@ -32,6 +33,7 @@ const StyledNote = styled.div`
 
   .finished {
     text-decoration: line-through;
+    opacity: 0.4;
   }
 `;
 
