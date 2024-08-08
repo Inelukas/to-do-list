@@ -11,7 +11,7 @@ const StyledNoteArea = styled.div`
   gap: 20px;
 `;
 
-export function NoteArea({ notes, onDelete }) {
+export function NoteArea({ notes, onDelete, onEdit }) {
   return (
     <StyledNoteArea>
       {notes.map((note) => {
@@ -22,6 +22,7 @@ export function NoteArea({ notes, onDelete }) {
             title={note.title}
             content={note.content}
             onDelete={onDelete}
+            onEdit={onEdit}
           />
         );
       })}

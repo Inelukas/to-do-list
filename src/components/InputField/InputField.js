@@ -67,6 +67,11 @@ export function InputField({ onNote }) {
             ...prevInput,
             content: prevInput.content + "\n• ",
           };
+        } else if (prevInput.content.includes("\n")) {
+          return {
+            ...prevInput,
+            content: prevInput.content + "\n",
+          };
         } else {
           return {
             ...prevInput,
