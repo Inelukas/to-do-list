@@ -28,11 +28,19 @@ export function Body() {
     );
   }
 
+  function handleEdit(newCardContent) {
+    setNotes(
+      notes.map((note) =>
+        note.id === newCardContent.id ? newCardContent : note
+      )
+    );
+  }
+
   return (
     <StyledBody>
       <Header />
       <InputField onNote={addNote} />
-      <NoteArea notes={notes} onDelete={handleDelete} />
+      <NoteArea notes={notes} onDelete={handleDelete} onEdit={handleEdit} />
       <Footer />
     </StyledBody>
   );
